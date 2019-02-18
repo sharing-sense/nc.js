@@ -139,7 +139,7 @@ class StatWatcher : public JsObjecT<StatWatcher> {
     NCJS_OBJECT_FUNCTION(Constructor)(CefRefPtr<CefV8Value> object,
         const CefV8ValueList& args, CefRefPtr<CefV8Value>& retval, CefString& except)
     {
-        NCJS_PROPERTY_CONST(Object, object, consts::str_wrap, NULL);
+		NCJS_PROPERTY_OBJECT_CONST(Object, object, consts::str_wrap, NULL);
     }
 
     // class factory

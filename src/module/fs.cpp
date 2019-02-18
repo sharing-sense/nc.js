@@ -119,7 +119,7 @@ public:
     operator const char*() const { return length() ? c_str() : NULL; }
 };
 
-class AutoUvBuffer : public CefBase, public uv_buf_t {
+class AutoUvBuffer : public CefBaseRefCounted, public uv_buf_t {
 public:
     AutoUvBuffer(const CefRefPtr<Buffer>& buf, unsigned pos, unsigned sz) :
         holder(buf) { base = buf->Data() + pos; len = sz; }
@@ -139,7 +139,7 @@ struct SyncReqWrap {
     DISALLOW_COPY_AND_ASSIGN(SyncReqWrap);
 };
 
-class AsyncReqWrap : public CefBase {
+class AsyncReqWrap : public CefBaseRefCounted {
 
     template <void* T> struct After;
 
@@ -168,7 +168,7 @@ public:
         Dispatch(static_cast<F>(T)(loop, &req, p1, p2, p3, p4, &After<T>::Entry));
     }
 
-    void HoldData(const CefRefPtr<CefBase>& lifeSpanData)
+	void HoldData(const CefRefPtr<CefBaseRefCounted>& lifeSpanData)
     {
         data = lifeSpanData;
     }
@@ -324,7 +324,7 @@ private:
     CefRefPtr<CefV8Context> context;
     CefRefPtr<CefV8Value> wrap;
 
-    CefRefPtr<CefBase> data;
+	CefRefPtr<CefBaseRefCounted> data;
 
     DISALLOW_COPY_AND_ASSIGN(AsyncReqWrap);
     IMPLEMENT_REFCOUNTING(AsyncReqWrap);
@@ -1047,7 +1047,7 @@ class ModuleFS : public JsObjecT<ModuleFS> {
         NCJS_CHECK(args[0]->IsInt());
         NCJS_CHECK(args[1]->IsArray());
 
-        class BufferHolder : public CefBase {
+		class BufferHolder : public CefBaseRefCounted {
         public:
             std::vector<uv_buf_t> bufs;
             std::vector< CefRefPtr<Buffer> > data;

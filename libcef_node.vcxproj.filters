@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\module">
+      <UniqueIdentifier>{8cab46ae-1b4d-458f-bdce-bf0fe2d5286b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc">
+      <UniqueIdentifier>{5496cf44-6e2a-4968-a083-1e6430b004a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\native">
+      <UniqueIdentifier>{af2f27e9-f968-4a43-a022-add4b7e7d183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Header Files\module">
+      <UniqueIdentifier>{071d8dd5-73a9-4c7c-ad2f-2dd99603622a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\constants.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Environment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ModuleManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Process.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderProcessHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\buffer.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\constants.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventLoop.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\fs.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\fs_event_wrap.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\fs_stat_watcher.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\natives.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\os.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\util.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\uv.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="src\misc\string_search.cc">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\ncjs\base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\Core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\Environment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\EventLoop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\HandleWrap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\module.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\ModuleManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\ncjs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\Process.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\RenderProcessHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\UserData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\native\modules.h">
+      <Filter>Header Files\native</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\native\nc.h">
+      <Filter>Header Files\native</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\module\buffer.h">
+      <Filter>Header Files\module</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ncjs\module\fs.h">
+      <Filter>Header Files\module</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

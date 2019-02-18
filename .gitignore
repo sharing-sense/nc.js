@@ -25,3 +25,7 @@
 # Other extensions
 
 *.pyc
+/deps/cef/
+/Debug/
+/app/Debug/
+/Node-CEF.opensdf

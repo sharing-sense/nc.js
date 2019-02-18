@@ -131,7 +131,7 @@ bool ExtensionHandler::Execute(const CefString& name, CefRefPtr<CefV8Value> obje
     }
 
     CefRefPtr<CefV8Value> init;
-    if (!context->Eval(GetMainSource(), init, exception)) {
+    if (!context->Eval(GetMainSource(), "", 0, init, exception)) {
         except = NCJS_TEXT("Failed to evaluate nc.js.");
         return true;
     }

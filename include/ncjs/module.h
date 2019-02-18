@@ -19,7 +19,7 @@
 #include "ncjs/version.h"
 #include "ncjs/string.h"
 #include "ncjs/Environment.h"
-
+ 
 /// ----------------------------------------------------------------------------
 /// Macros
 /// ----------------------------------------------------------------------------
@@ -76,7 +76,7 @@
                                                CefRefPtr<CefV8Context> _context) \
     { \
         CefRefPtr<_object_t> _thiz = _object_t::GetInstance(); \
-        CefRefPtr<CefV8Value> _object = CefV8Value::CreateObject(NULL);
+        CefRefPtr<CefV8Value> _object = CefV8Value::CreateObject(NULL, NULL);
 
 #define NCJS_END_OBJECT_FACTORY() \
         return _object; \
@@ -111,10 +111,16 @@
 
 
 #define NCJS_MAP_OBJECT_X(_TYPE, _NAME, _VALUE, _ATTRIBUTE) \
-    _object->SetValue(_NAME, CefV8Value::Create##_TYPE(_VALUE), _ATTRIBUTE);
+    _object->SetValue(CefString(_NAME), CefV8Value::Create##_TYPE(_VALUE), _ATTRIBUTE);
 
 #define NCJS_MAP_OBJECT(_TYPE, _NAME, _VALUE) \
     NCJS_MAP_OBJECT_X(_TYPE, _NAME, _VALUE, V8_PROPERTY_ATTRIBUTE_NONE)
+
+#define NCJS_MAP_OBJECT_X2(_TYPE, _NAME, _VALUE, _ATTRIBUTE) \
+    _object->SetValue(CefString(_NAME), CefV8Value::Create##_TYPE(_VALUE, NULL), _ATTRIBUTE);
+
+#define NCJS_MAP_OBJECT2(_TYPE, _NAME, _VALUE) \
+    NCJS_MAP_OBJECT_X2(_TYPE, _NAME, _VALUE, V8_PROPERTY_ATTRIBUTE_NONE)
 
 #define NCJS_MAP_OBJECT_READONLY(_TYPE, _NAME, _VALUE) \
     NCJS_MAP_OBJECT_X(_TYPE, _NAME, _VALUE, V8_PROPERTY_ATTRIBUTE_READONLY)
@@ -154,7 +160,7 @@
 
 
 #define NCJS_MAP_OBJECT_ACCESSOR_X(_NAME, _ACCESSOR, _ATTRIBUTE) \
-    CefRefPtr<CefV8Value> _obj##_ACCESSOR = CefV8Value::CreateObject(_ACCESSOR::GetInstance()); \
+    CefRefPtr<CefV8Value> _obj##_ACCESSOR = CefV8Value::CreateObject(_ACCESSOR::GetInstance(), NULL); \
     _object->SetValue(_NAME, _obj##_ACCESSOR, _ATTRIBUTE);
 
 #define NCJS_MAP_OBJECT_ACCESSOR(_NAME, _ACCESSOR) \
@@ -254,7 +260,7 @@ public:
 
 // create an instance for each object
 template <class T>
-class JsObjecT<T, false> : public CefBase {
+class JsObjecT<T, false> : public CefBaseRefCounted{
 public:
     typedef T _object_t;
 

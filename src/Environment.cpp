@@ -516,11 +516,11 @@ Environment* Environment::Create(CefRefPtr<CefV8Context> context)
     // comile functions
     CefRefPtr<CefV8Exception> except;
     // new
-    context->Eval(s_scriptNew, env->GetFunction().op_new, except);
+    context->Eval(s_scriptNew, "", 0, env->GetFunction().op_new, except);
     // new Error(str)
-    context->Eval(s_scriptError, env->GetFunction().new_error, except);
+	context->Eval(s_scriptError, "", 0, env->GetFunction().new_error, except);
     // throw
-    context->Eval(s_scriptThrow, env->GetFunction().op_throw, except);
+	context->Eval(s_scriptThrow, "", 0, env->GetFunction().op_throw, except);
 
     return env;
 }

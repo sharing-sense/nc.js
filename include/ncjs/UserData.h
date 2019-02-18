@@ -14,8 +14,9 @@
 /// ----------------------------------------------------------------------------
 /// Headers
 /// ----------------------------------------------------------------------------
-
+#include "include/internal/cef_ptr.h"
 #include <include/cef_v8.h>
+#include "include/cef_base.h"
 
 namespace ncjs {
 
@@ -34,7 +35,7 @@ typedef int TYPE;
 /// prevent conflicts of user data set by Node-CEF users.
 /// ----------------------------------------------------------------------------
 template <class T, USER_DATA::TYPE TID>
-class UserData : public CefBase {
+class UserData : public CefBaseRefCounted {
 public:
 
     USER_DATA::TYPE GetDataType() const { return m_type; }
@@ -48,7 +49,7 @@ public:
 
     CefRefPtr<CefV8Value> Wrap()
     {
-        const CefRefPtr<CefV8Value> wrap = CefV8Value::CreateObject(NULL);
+        const CefRefPtr<CefV8Value> wrap = CefV8Value::CreateObject(NULL, NULL);
         Wrap(wrap);
         return wrap;
     }
@@ -58,7 +59,7 @@ public:
 
     static T* Unwrap(const CefRefPtr<CefV8Value>& wrap)
     {
-        if (CefBase* base = wrap->GetUserData().get()) {
+        if (CefBaseRefCounted* base = wrap->GetUserData().get()) {
             UserData<T, TID>* data = static_cast<UserData<T, TID>*>(base);
             if (data->IsTypeOf(TID))
                 return static_cast<T*>(data);
@@ -73,7 +74,7 @@ public:
     UserData() : m_type(TID) {}
 
 private:
-
+	IMPLEMENT_REFCOUNTING(UserData);
     /// Declarations
     /// -----------------
 

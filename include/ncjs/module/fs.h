@@ -11,7 +11,8 @@
 #ifndef NCJS_MODULE_FS_H
 #define NCJS_MODULE_FS_H
 
-template <class T> class CefRefPtr;
+//template <class T> class CefRefPtr;
+#include "include/internal/cef_ptr.h"
 class CefV8Value;
 class CefV8Context;
 

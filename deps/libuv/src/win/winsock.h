@@ -146,7 +146,7 @@ typedef struct _AFD_RECV_INFO {
 #define IOCTL_AFD_POLL \
     _AFD_CONTROL_CODE(AFD_POLL, METHOD_BUFFERED)
 
-#if _MSC_VER == 1400 || (defined(__MINGW32__) && !defined(__MINGW64_VERSION_MAJOR))
+#if defined(__MINGW32__) && !defined(__MINGW64_VERSION_MAJOR)
 typedef struct _IP_ADAPTER_UNICAST_ADDRESS_XP {
   /* FIXME: __C89_NAMELESS was removed */
   /* __C89_NAMELESS */ union {
@@ -186,5 +186,8 @@ typedef struct _IP_ADAPTER_UNICAST_ADDRESS_LH {
 } IP_ADAPTER_UNICAST_ADDRESS_LH,*PIP_ADAPTER_UNICAST_ADDRESS_LH;
 
 #endif
+
+int uv__convert_to_localhost_if_unspecified(const struct sockaddr* addr,
+                                            struct sockaddr_storage* storage);
 
 #endif /* UV_WIN_WINSOCK_H_ */

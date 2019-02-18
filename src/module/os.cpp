@@ -130,14 +130,14 @@ class ModuleOS : public JsObjecT<ModuleOS> {
 
             uv_cpu_info_t* ci = cpu_infos + i;
     
-            CefRefPtr<CefV8Value> times_info = CefV8Value::CreateObject(NULL);
+			CefRefPtr<CefV8Value> times_info = CefV8Value::CreateObject(NULL, NULL);
             times_info->SetValue(str_user, CefV8Value::CreateDouble(double(ci->cpu_times.user)), V8_PROPERTY_ATTRIBUTE_NONE);
             times_info->SetValue(str_nice, CefV8Value::CreateDouble(double(ci->cpu_times.nice)), V8_PROPERTY_ATTRIBUTE_NONE);
             times_info->SetValue(str_sys,  CefV8Value::CreateDouble(double(ci->cpu_times.sys)),  V8_PROPERTY_ATTRIBUTE_NONE);
             times_info->SetValue(str_idle, CefV8Value::CreateDouble(double(ci->cpu_times.idle)), V8_PROPERTY_ATTRIBUTE_NONE);
             times_info->SetValue(str_irq,  CefV8Value::CreateDouble(double(ci->cpu_times.irq)),  V8_PROPERTY_ATTRIBUTE_NONE);
     
-            CefRefPtr<CefV8Value> cpu_info = CefV8Value::CreateObject(NULL);
+			CefRefPtr<CefV8Value> cpu_info = CefV8Value::CreateObject(NULL, NULL);
 			cpu_info->SetValue(str_model, CefV8Value::CreateString(ci->model),         V8_PROPERTY_ATTRIBUTE_NONE);
             cpu_info->SetValue(str_speed, CefV8Value::CreateDouble(double(ci->speed)), V8_PROPERTY_ATTRIBUTE_NONE);
             cpu_info->SetValue(str_times, times_info,                                  V8_PROPERTY_ATTRIBUTE_NONE);
@@ -207,7 +207,7 @@ class ModuleOS : public JsObjecT<ModuleOS> {
 		char mac[18];
 		CefString name;
 		CefRefPtr<CefV8Value> o, family, ifarr;
-		CefRefPtr<CefV8Value> ret = CefV8Value::CreateObject(NULL);
+		CefRefPtr<CefV8Value> ret = CefV8Value::CreateObject(NULL, NULL);
 		int err = uv_interface_addresses(&interfaces, &count);
 
 		if (err == UV_ENOSYS) {
@@ -259,7 +259,7 @@ class ModuleOS : public JsObjecT<ModuleOS> {
 				family = STR_UNKN;
 			}
 
-			o = CefV8Value::CreateObject(NULL);
+			o = CefV8Value::CreateObject(NULL, NULL);
 			o->SetValue(consts::str_address, CefV8Value::CreateString(ip), V8_PROPERTY_ATTRIBUTE_NONE);
 			o->SetValue(consts::str_netmask, CefV8Value::CreateString(netmask), V8_PROPERTY_ATTRIBUTE_NONE);
 			o->SetValue(consts::str_family, family, V8_PROPERTY_ATTRIBUTE_NONE);

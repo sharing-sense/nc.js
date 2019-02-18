@@ -29,7 +29,7 @@
 
 
 void uv_async_endgame(uv_loop_t* loop, uv_async_t* handle) {
-  if (handle->flags & UV__HANDLE_CLOSING &&
+  if (handle->flags & UV_HANDLE_CLOSING &&
       !handle->async_sent) {
     assert(!(handle->flags & UV_HANDLE_CLOSED));
     uv__handle_close(handle);
@@ -45,8 +45,7 @@ int uv_async_init(uv_loop_t* loop, uv_async_t* handle, uv_async_cb async_cb) {
   handle->async_cb = async_cb;
 
   req = &handle->async_req;
-  uv_req_init(loop, req);
-  req->type = UV_WAKEUP;
+  UV_REQ_INIT(req, UV_WAKEUP);
   req->data = handle;
 
   uv__handle_start(handle);
@@ -63,6 +62,27 @@ void uv_async_close(uv_loop_t* loop, uv_async_t* handle) {
   uv__handle_closing(handle);
 }
 
+
+int uv_async_send(uv_async_t* handle) {
+  uv_loop_t* loop = handle->loop;
+
+  if (handle->type != UV_ASYNC) {
+    /* Can't set errno because that's not thread-safe. */
+    return -1;
+  }
+
+  /* The user should make sure never to call uv_async_send to a closing or
+   * closed handle. */
+  assert(!(handle->flags & UV_HANDLE_CLOSING));
+
+  if (!uv__atomic_exchange_set(&handle->async_sent)) {
+    POST_COMPLETION_FOR_REQ(loop, &handle->async_req);
+  }
+
+  return 0;
+}
+
+
 void uv_process_async_wakeup_req(uv_loop_t* loop, uv_async_t* handle,
     uv_req_t* req) {
   assert(handle->type == UV_ASYNC);
@@ -70,7 +90,7 @@ void uv_process_async_wakeup_req(uv_loop_t* loop, uv_async_t* handle,
 
   handle->async_sent = 0;
 
-  if (handle->flags & UV__HANDLE_CLOSING) {
+  if (handle->flags & UV_HANDLE_CLOSING) {
     uv_want_endgame(loop, (uv_handle_t*)handle);
   } else if (handle->async_cb != NULL) {
     handle->async_cb(handle);

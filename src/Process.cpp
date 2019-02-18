@@ -374,7 +374,7 @@ class ProcessObject : public JsObjecT<ProcessObject> {
 
         // TODO: add missing 'heapTotal' and 'heapUsed'
 
-        retval = CefV8Value::CreateObject(NULL);
+        retval = CefV8Value::CreateObject(NULL, NULL);
         retval->SetValue(consts::str_rss, CefV8Value::CreateDouble(double(rss)),
                          V8_PROPERTY_ATTRIBUTE_NONE);
     }
@@ -402,7 +402,7 @@ class ProcessObject : public JsObjecT<ProcessObject> {
         NCJS_MAP_OBJECT_READONLY(String, "platform", NCJS_REFTEXT(NCJS_PLATFORM))
         NCJS_MAP_OBJECT_READONLY(Int, "pid", getpid())
         // objects
-        NCJS_MAP_OBJECT(Object, "_events", NULL)
+		NCJS_MAP_OBJECT2(Object, "_events", NULL)
         NCJS_MAP_OBJECT_FACTORY("versions", VersionsObject)
         NCJS_MAP_OBJECT_FACTORY_READONLY("features", FeaturesObject)
         // functions

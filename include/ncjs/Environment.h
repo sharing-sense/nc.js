@@ -26,7 +26,7 @@ class EventLoop;
 /// ----------------------------------------------------------------------------
 /// \class Environment
 /// ----------------------------------------------------------------------------
-class Environment : public CefBase {
+class Environment : public CefBaseRefCounted {
 
     friend class Core;
 
@@ -52,12 +52,12 @@ class Environment : public CefBase {
         CefRefPtr<CefV8Value> binding_cache;
         CefRefPtr<CefV8Value> ptype_buffer;
 
-        Object() : binding_cache(CefV8Value::CreateObject(NULL)) {}
+        Object() : binding_cache(CefV8Value::CreateObject(NULL, NULL)) {}
     } m_object;
 
 public:
 
-    class Listener : public CefBase {
+	class Listener : public CefBaseRefCounted {
     public:
         virtual void OnContextReleased(CefRefPtr<CefV8Context> context) = 0;
     };

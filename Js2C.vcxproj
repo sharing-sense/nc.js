@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>JS2C</ProjectName>
+    <ProjectGuid>{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}</ProjectGuid>
+    <RootNamespace>Js2C</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\js2c\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\js2c\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\js2c\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\js2c\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CustomBuildStep>
+      <Command>cd src
+..\tool\js2c.py ..\include\ncjs\native\nc.h native\nc.js
+..\tool\js2c.py ..\include\ncjs\native\modules.h native\assert.js native\buffer.js native\constants.js native\events.js native\fs.js native\module.js native\os.js native\path.js native\process.js native\punycode.js native\querystring.js native\string_decoder.js native\timers.js native\url.js native\util.js native\vm.js native\internal\cluster.js native\internal\freelist.js native\internal\module.js native\internal\util.js</Command>
+      <Inputs>src/native/nc.js;%(Inputs)</Inputs>
+      <Outputs>include\ncjs\native\ncjs.h;include\ncjs\native\modules.h;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <CustomBuildStep>
+      <Command>cd src
+..\tool\js2c.py ..\include\ncjs\native\nc.h native\nc.js
+..\tool\js2c.py ..\include\ncjs\native\modules.h native\assert.js native\buffer.js native\constants.js native\events.js native\fs.js native\module.js native\os.js native\path.js native\process.js native\punycode.js native\querystring.js native\string_decoder.js native\timers.js native\url.js native\util.js native\vm.js native\internal\cluster.js native\internal\freelist.js native\internal\module.js native\internal\util.js</Command>
+      <Inputs>src/native/nc.js;%(Inputs)</Inputs>
+      <Outputs>include\ncjs\native\ncjs.h;include\ncjs\native\modules.h;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <Link>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildStep>
+      <Command>cd src
+..\tool\js2c.py ..\include\ncjs\native\nc.h native\nc.js
+..\tool\js2c.py ..\include\ncjs\native\modules.h native\assert.js native\buffer.js native\constants.js native\events.js native\fs.js native\module.js native\os.js native\path.js native\process.js native\punycode.js native\querystring.js native\string_decoder.js native\timers.js native\url.js native\util.js native\vm.js native\internal\cluster.js native\internal\freelist.js native\internal\module.js native\internal\util.js</Command>
+      <Inputs>src/native/nc.js;%(Inputs)</Inputs>
+      <Outputs>include\ncjs\native\ncjs.h;include\ncjs\native\modules.h;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <CustomBuildStep>
+      <Command>cd src
+..\tool\js2c.py ..\include\ncjs\native\nc.h native\nc.js
+..\tool\js2c.py ..\include\ncjs\native\modules.h native\assert.js native\buffer.js native\constants.js native\events.js native\fs.js native\module.js native\os.js native\path.js native\process.js native\punycode.js native\querystring.js native\string_decoder.js native\timers.js native\url.js native\util.js native\vm.js native\internal\cluster.js native\internal\freelist.js native\internal\module.js native\internal\util.js</Command>
+      <Inputs>src/native/nc.js;%(Inputs)</Inputs>
+      <Outputs>include\ncjs\native\ncjs.h;include\ncjs\native\modules.h;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <Link>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="src\native\assert.js" />
+    <None Include="src\native\buffer.js" />
+    <None Include="src\native\constants.js" />
+    <None Include="src\native\events.js" />
+    <None Include="src\native\fs.js" />
+    <None Include="src\native\internal\cluster.js" />
+    <None Include="src\native\internal\freelist.js" />
+    <None Include="src\native\internal\module.js" />
+    <None Include="src\native\internal\util.js" />
+    <None Include="src\native\module.js" />
+    <None Include="src\native\nc.js" />
+    <None Include="src\native\os.js" />
+    <None Include="src\native\path.js" />
+    <None Include="src\native\process.js" />
+    <None Include="src\native\punycode.js" />
+    <None Include="src\native\querystring.js" />
+    <None Include="src\native\string_decoder.js" />
+    <None Include="src\native\timers.js" />
+    <None Include="src\native\url.js" />
+    <None Include="src\native\util.js" />
+    <None Include="src\native\vm.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\ncjs\native\modules.h" />
+    <ClInclude Include="include\ncjs\native\nc.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

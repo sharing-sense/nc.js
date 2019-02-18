@@ -14,9 +14,9 @@
 class CefV8Handler;
 class CefCommandLine;
 
-template <class T>
-class CefRefPtr;
-
+//template <class T>
+//class CefRefPtr;
+#include "include/internal/cef_ptr.h"
 /// ----------------------------------------------------------------------------
 /// Headers
 /// ----------------------------------------------------------------------------

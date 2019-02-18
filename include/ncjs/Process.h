@@ -11,9 +11,9 @@
 #ifndef NCJS_PROCESS_H
 #define NCJS_PROCESS_H
 
-
-template <class T>
-class CefRefPtr;
+#include "include/internal/cef_ptr.h"
+//template <class T>
+//class CefRefPtr;
 class CefV8Value;
 class CefBrowser;
 class CefFrame;

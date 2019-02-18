@@ -1,17 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcef_node", "libcef_node.vcproj", "{C7FD05DE-D707-43F1-85D2-417E941AD857}"
-	ProjectSection(ProjectDependencies) = postProject
-		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1} = {60129FAC-DA78-4F18-9686-63AD4FB9EFC1}
-		{2A409EF4-5910-B09A-AD8F-F245B9095CE5} = {2A409EF4-5910-B09A-AD8F-F245B9095CE5}
-	EndProjectSection
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deps", "deps", "{250BE92F-DF52-4304-B098-4D36CD40335E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libuv", "deps\libuv\libuv.vcproj", "{2A409EF4-5910-B09A-AD8F-F245B9095CE5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcef_node", "libcef_node.vcxproj", "{C7FD05DE-D707-43F1-85D2-417E941AD857}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Js2C", "Js2C.vcproj", "{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libuv", "deps\libuv\libuv.vcxproj", "{2A409EF4-5910-B09A-AD8F-F245B9095CE5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JS2C", "Js2C.vcxproj", "{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app", "app\app.vcxproj", "{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,13 +29,12 @@ Global
 		{C7FD05DE-D707-43F1-85D2-417E941AD857}.Release|Win32.Build.0 = Release|Win32
 		{C7FD05DE-D707-43F1-85D2-417E941AD857}.Release|x64.ActiveCfg = Release|x64
 		{C7FD05DE-D707-43F1-85D2-417E941AD857}.Release|x64.Build.0 = Release|x64
-		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Debug|Win32.ActiveCfg = Debug|x64
-		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Debug|x64.ActiveCfg = Debug|x64
-		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Debug|x64.Build.0 = Debug|x64
+		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Debug|Win32.Build.0 = Debug|Win32
+		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Debug|x64.ActiveCfg = Debug|Win32
 		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Release|Win32.ActiveCfg = Release|Win32
 		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Release|Win32.Build.0 = Release|Win32
-		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Release|x64.ActiveCfg = Release|x64
-		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Release|x64.Build.0 = Release|x64
+		{2A409EF4-5910-B09A-AD8F-F245B9095CE5}.Release|x64.ActiveCfg = Release|Win32
 		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}.Debug|Win32.ActiveCfg = Debug|Win32
 		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}.Debug|Win32.Build.0 = Debug|Win32
 		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}.Debug|x64.ActiveCfg = Debug|x64
@@ -44,6 +43,12 @@ Global
 		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}.Release|Win32.Build.0 = Release|Win32
 		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}.Release|x64.ActiveCfg = Release|x64
 		{60129FAC-DA78-4F18-9686-63AD4FB9EFC1}.Release|x64.Build.0 = Release|x64
+		{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}.Debug|Win32.Build.0 = Debug|Win32
+		{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}.Debug|x64.ActiveCfg = Debug|Win32
+		{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}.Release|Win32.ActiveCfg = Release|Win32
+		{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}.Release|Win32.Build.0 = Release|Win32
+		{7E158D5D-2A7B-4AAD-AB85-547787E9DA66}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
