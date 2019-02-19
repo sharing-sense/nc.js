@@ -47,6 +47,7 @@ void RenderProcessHandler::OnRenderThreadCreated(CefRefPtr<CefListValue> extra_i
 
 void RenderProcessHandler::OnWebKitInitialized()
 {
+	OutputDebugString(TEXT("OnWebKitInitialized"));
     Core::RegisterExtension();
 }
 
