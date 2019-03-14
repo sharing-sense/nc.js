@@ -131,7 +131,7 @@ bool ExtensionHandler::Execute(const CefString& name, CefRefPtr<CefV8Value> obje
     }
 
     CefRefPtr<CefV8Value> init;
-    if (!context->Eval(GetMainSource(), "", 0, init, exception)) {
+    if (!context->Eval(GetMainSource(), "nc.js", 0, init, exception)) {
         except = NCJS_TEXT("Failed to evaluate nc.js.");
         return true;
     }
@@ -179,7 +179,7 @@ bool Core::RegisterExtension()
     if (s_instance == NULL)
         return false;
 
-    return CefRegisterExtension(L"v8/Node-CEF", s_extension, &s_handler);
+    return CefRegisterExtension(L"v8/Node-Cef", s_extension, &s_handler);
 }
 
 bool Core::Initialize(const CefRefPtr<CefCommandLine>& cmd)
