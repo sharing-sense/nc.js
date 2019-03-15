@@ -194,19 +194,8 @@ Because of the missing `ArrayBuffer` and `Uint8Array` supports from CEF, the sub
 
 |     CEF 3     | Chromium | Linux | Mac | Windows |
 |:-------------:|:--------:|:-----:|:---:|:-------:|
-|  Branch 2704  |   51.0   |   ?   |  ?  |    ?    |
-|  Branch 2623  |   49.0   |   ?   |  ?  |    ?    |
-|  Branch 2526  |   47.0   |   ?   |  ?  |    ?    |
-|  Branch 2454  |   45.0   |   ?   |  ?  |  WORKS  |
-|  Branch 2357  |   43.0   |   ?   |  ?  |    ?    |
-|  Branch 2272  |   41.0   |   ?   |  ?  |    ?    |
-|  Branch 2171  |   39.0   |   ?   |  ?  |    ?    |
-|  Branch 2062  |   37.0   |   ?   |  ?  |    ?    |
-|  Branch 1916  |   35.0   |   ?   |  ?  |    ?    |
-|  Branch 1750  |   33.0   |   ?   |  ?  |    ?    |
-|  Branch 1650  |   31.0   |   ?   |  ?  |    ?    |
-|  Branch 1547  |   29.0   |   ?   |  ?  |    ?    |
-|  Branch 1453  |   27.0   |   ?   |  ?  |    ?    |
+|  Branch 3396  |   67.0   |   ?   |  ?  |    ?    |
+
 
 Please feedback us whether Node-CEF works with your CEF.
 
